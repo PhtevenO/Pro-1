@@ -15,6 +15,9 @@ import { Router } from "@angular/router";
   styleUrls: ["./main-content.component.scss"]
 })
 export class MainContentComponent implements OnInit {
+
+
+
   Email;
 
   displayedColumns: string[]= ['name', 'year', 'position', 'days'];

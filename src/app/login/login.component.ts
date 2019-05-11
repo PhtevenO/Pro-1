@@ -4,6 +4,7 @@ import { RegisterModel } from '../models/Register.model';
 import { Globals } from '../globals/globals';
 import { Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +20,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private glo: Globals,
-    private router: Router) { }
+    private router: Router,
+   ) { }
+
+
 
   back(){
     this.form = "log";
@@ -71,6 +75,7 @@ export class LoginComponent implements OnInit {
 
     let filtName = this.glo.loginData.filter((name) => name.email === this.user.email);
     if (filtName.length > 0 && filtName[0]['password'] === this.user.password){
+
       this.router.navigate(['/main']);
       this.errorMessage = '';
       localStorage.setItem('name', filtName[0]['email']);

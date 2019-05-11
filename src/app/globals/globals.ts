@@ -13,6 +13,9 @@ export interface Workers {
 
 
 export class Globals {
+
+  timer;
+
   loginData = [{ name: "admin", email: "admin@info.net", password: "admin" }];
   constructor() {}
 

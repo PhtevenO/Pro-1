@@ -13,6 +13,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSortModule} from '@angular/material/sort';
 
+import { UserIdleModule } from 'angular-user-idle';
+
 import { LoginComponent } from './login/login.component';
 import {Globals} from './globals/globals';
 import { AddNewPopComponent } from './main-content/add-new-pop/add-new-pop.component';
@@ -34,7 +36,8 @@ import { AddNewPopComponent } from './main-content/add-new-pop/add-new-pop.compo
      ReactiveFormsModule,
      MatTableModule,
      MatDialogModule,
-     MatSortModule
+     MatSortModule,
+     UserIdleModule.forRoot({idle: 10, timeout: 100, ping: 10})
   ],
   providers: [Globals],
   bootstrap: [AppComponent],
