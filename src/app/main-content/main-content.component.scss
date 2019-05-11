@@ -1,0 +1,19 @@
+table{
+  width: 100%;
+}
+
+header{
+  height: 50px;
+  background: rgba(1,1,1,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  p{
+    margin: 0;
+  }
+  button{
+    align-self: right;
+    justify-self: right;
+  }
+}

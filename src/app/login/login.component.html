@@ -1,0 +1,63 @@
+<div class="loginForm">
+  <div *ngIf='form === "log"' class="login">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && login()">
+        <div>
+          <mat-form-field>
+              <input id="email"
+              matInput
+              formControlName="email"
+              [(ngModel)] = "user.email"
+              placeholder="Enter your email" />
+            </mat-form-field>
+            <mat-form-field>
+                <input id="password"
+                type="password"
+                matInput
+                formControlName="password"
+                [(ngModel)] = "user.password"
+                placeholder="Enter your password" />
+              </mat-form-field>
+              <button mat-button type='submit' class='mat-raised-button'>Login</button>
+              <button mat-button type='button' (click)='regForm()' class='mat-raised-button'>Register</button>
+    <p>{{errorMessage}}</p>
+        </div>
+      </form>
+
+  </div>
+  <div *ngIf='form === "reg"' class="register" >
+    <h1>Register Form</h1>
+    <div>
+        <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onRegisterSubmit()">
+          <div>
+            <mat-form-field>
+              <input id="name"
+              matInput
+              formControlName="name"
+              [(ngModel)] = "user.name"
+              placeholder="Enter your name" />
+            </mat-form-field>
+            <mat-form-field>
+                <input id="email"
+                matInput
+                formControlName="email"
+                [(ngModel)] = "user.email"
+                placeholder="Enter your email" />
+              </mat-form-field>
+              <mat-form-field>
+                  <input id="password"
+                  type="password"
+                  matInput
+                  formControlName="password"
+                  [(ngModel)] = "user.password"
+                  placeholder="Enter your password" />
+                </mat-form-field>
+                <button mat-button type="submit" class='mat-raised-button'>Register</button>
+                <button mat-button (click)='back()' class='mat-raised-button'>Back</button>
+          </div>
+        </form>
+    </div>
+
+  </div>
+
+</div>

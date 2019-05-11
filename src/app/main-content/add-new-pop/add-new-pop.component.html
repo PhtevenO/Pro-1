@@ -1,0 +1,50 @@
+<form [formGroup]="newUserForm" (ngSubmit)="newUserForm.valid && addUser()">
+  <div>
+    <mat-form-field>
+      <input
+        id="name"
+        matInput
+        formControlName="name"
+        [(ngModel)]="user.name"
+        placeholder="User Name"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        id="year"
+        type="number"
+        matInput
+        formControlName="year"
+        [(ngModel)]="user.year"
+        placeholder="How old is user"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        id="position"
+        matInput
+        formControlName="position"
+        [(ngModel)]="user.position"
+        placeholder="Position in company"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        id="days"
+        type="number"
+        matInput
+        formControlName="days"
+        [(ngModel)]="user.days"
+        placeholder="user Days Worked"
+      />
+    </mat-form-field>
+    <button mat-button type="submit" class="mat-raised-button">Add</button>
+    <button mat-button
+      type="button"
+      (click)="close()"
+      class="mat-raised-button"
+    >
+      Close
+    </button>
+  </div>
+</form>
