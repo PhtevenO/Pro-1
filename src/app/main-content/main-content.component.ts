@@ -9,10 +9,6 @@ import { Globals } from "../globals/globals";
 import { AddNewPopComponent } from "./add-new-pop/add-new-pop.component";
 import { Router } from "@angular/router";
 
-
-
-
-
 @Component({
   selector: "app-main-content",
   templateUrl: "./main-content.component.html",
@@ -23,7 +19,7 @@ export class MainContentComponent implements OnInit {
 
   displayedColumns: string[]= ['name', 'year', 'position', 'days'];
   dataSource = new MatTableDataSource(this.globals.tableData);
-  originData;
+  originData = this.globals.tableData;
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -33,18 +29,10 @@ export class MainContentComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngAfterViewInit(){
-    this.originData = this.globals.tableData;
-  }
-  ngOnDestroy(){
-    this.globals.tableData = this.originData;
-  }
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
-
     this.Email = localStorage.getItem("name");
-
   }
 
   initiateTable() {}
