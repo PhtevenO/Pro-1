@@ -12,10 +12,13 @@ import { Globals } from "./globals/globals";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styleUrls: ["./app.component.scss"],
+  host: {
+    "(document:click)": "onDocumentClicked($event)"
+  }
 })
 export class AppComponent {
-  title = "Mediapark LogIn";
+  title = "MP LogIn";
 
   constructor(
     private router: Router,
@@ -24,9 +27,7 @@ export class AppComponent {
   ) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
-        console.log(event.url);
         if (event.url != "/main") {
-          console.log("login");
           this.stop();
           this.stopWatching();
         } else {
@@ -44,6 +45,10 @@ export class AppComponent {
     });
   }
 
+  onDocumentClicked(ev) {
+    this.restart();
+  }
+
   stop() {
     this.userIdle.stopTimer();
   }
@@ -55,9 +60,7 @@ export class AppComponent {
   startWatching() {
     this.userIdle.startWatching();
   }
-
-  restart(e) {
-    console.log("something" + e);
+  restart() {
     this.userIdle.resetTimer();
   }
 }

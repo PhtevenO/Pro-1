@@ -1,0 +1,17 @@
+form{
+  width: 100%;
+  margin: auto;
+  align-content: center;
+  justify-content: center;
+  div{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  mat-form-field{
+    width: 80%;
+  }
+  button{
+    width: 200px;
+  }
+}

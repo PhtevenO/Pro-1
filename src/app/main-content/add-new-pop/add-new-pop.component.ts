@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import { Globals } from '../../globals/globals';
 import {NewUserModel} from './newUser.model';
-import { MatDialogRef} from '@angular/material';
+import { MatDialogRef, MatDialog} from '@angular/material';
 
 
 
@@ -19,7 +19,7 @@ export class AddNewPopComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private globals: Globals,
-    // private dialog: MatDialog,
+    private dialog: MatDialog,
     private dialogRef: MatDialogRef<AddNewPopComponent>
   ) { }
 
@@ -43,21 +43,17 @@ export class AddNewPopComponent implements OnInit {
     });
 
   }
-
   addUser(){
-
-  }
-  close(){
-
-
     let obj = this.user;
     if(this.newUserForm.invalid){
       this.dialogRef.close();
     } else {
       this.dialogRef.close(obj);
     }
-
-
+  }
+  close(){
+    this.dialog.closeAll();
+      // this.dialogRef.close();
   }
 
 }

@@ -70,15 +70,15 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log('success')
-
 
     let filtName = this.glo.loginData.filter((name) => name.email === this.user.email);
-    if (filtName.length > 0 && filtName[0]['password'] === this.user.password){
-
+    console.log(filtName);
+    if (filtName.length > 0 && filtName[0].password === this.user.password){
+      localStorage.setItem('name', filtName[0]['email']);
+      console.log('success')
       this.router.navigate(['/main']);
       this.errorMessage = '';
-      localStorage.setItem('name', filtName[0]['email']);
+
     } else {
       this.errorMessage = 'Wrong password or email';
     }

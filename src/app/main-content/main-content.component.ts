@@ -15,13 +15,9 @@ import { Router } from "@angular/router";
   styleUrls: ["./main-content.component.scss"]
 })
 export class MainContentComponent implements OnInit {
-
-
-
   Email;
-
   displayedColumns: string[]= ['name', 'year', 'position', 'days'];
-  dataSource = new MatTableDataSource(this.globals.tableData);
+  dataSource;
   originData = this.globals.tableData;
 
   @ViewChild(MatSort) sort: MatSort;
@@ -34,7 +30,8 @@ export class MainContentComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
+    // this.dataSource.sort = this.sort;
+    this.dataSource = new MatTableDataSource(this.globals.tableData);
     this.Email = localStorage.getItem("name");
   }
 
@@ -43,22 +40,15 @@ export class MainContentComponent implements OnInit {
   logOut() {
     localStorage.clear();
     sessionStorage.clear();
-
-
     this.router.navigate([""]);
-
   }
 
   addnew() {
-    console.log("hello");
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = "60%";
     this.dialog.open(AddNewPopComponent, dialogConfig);
-
     const dialogRef = this.dialog.open(AddNewPopComponent, dialogConfig);
-
     dialogRef.afterClosed().subscribe(data => {
-      console.log(data);
       if(data === undefined ){
       } else {
         this.globals.tableData.push(data);
@@ -67,7 +57,6 @@ export class MainContentComponent implements OnInit {
       }
     });
   }
-
   delete(){
 
   }

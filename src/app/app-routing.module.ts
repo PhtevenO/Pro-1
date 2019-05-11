@@ -14,9 +14,14 @@ const routes: Routes = [];
         component: MainContentComponent
       },
       {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
         path: '',
         component: LoginComponent
-      }
+      },
+      { path: '**', redirectTo: 'login', pathMatch: 'full'}
     ]
   )],
   exports: [RouterModule]
